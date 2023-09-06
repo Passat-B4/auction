@@ -1,40 +1,72 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Аукцион</title>
-  <style>
-    body {
-      text-align: center;
-    }
-   img {
-     width: 70%
-   }
+    <meta charset="utf-8">
+    <title>Аукцион</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        img {
+            width: 70%
+        }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Аукцион</h1>
-  </header>
+    <header>
+        <h1>Аукцион</h1>
+    </header>
   
-  <main>
-    <h2>Добро пожаловать!</h2>
-    <p>На нашем аукционе вы можете приобрести уникальный лот, который будет представлен здесь.</p>
+    <main>
+        <h2>Добро пожаловать!</h2>
+        <p>На нашем аукционе вы можете приобрести уникальный лот, который будет представлен здесь.</p>
     
-    <div id="lot">
-      <h3>Лот номер 1</h3>
-      <img src="https://passat-b4.github.io/auction/lot1.jpg" alt="Лот 1">
-      <p>Описание лота и его характеристики.</p>
-      <p>Текущая ставка: $100</p>
+        <div id="lot">
+            <h3>Лот номер 1</h3>
+            <img src="https://passat-b4.github.io/auction/lot1.jpg" alt="Лот 1">
+            <p>Описание лота и его характеристики.</p>
+            <p>Текущая ставка: $100</p>
       
-      <form action="submit_bid.php" method="POST">
-        <input type="number" name="bid_amount" placeholder="Ваша ставка">
-        <input type="submit" value="Сделать ставку">
-      </form>
-    </div>
-  </main>
-  
-  <footer>
+            <form action="" method="POST">
+                <input type="number" name="bid_amount" id="bid_amount" placeholder="Ваша ставка">
+                <input type="submit" value="Сделать ставку">
+            </form>
+        </div>
+        <div id="bidList">
+            <h3>Ставки:</h3>
+            <ul id="bidItems"></ul>
+        </div>
+
+    </main>
+
+    <footer>
     <!-- Здесь может быть информация о владельце, контакты и другая дополнительная информация -->
-  </footer>
+    </footer>
+
+    <script>
+          // Получаем элементы для списка ставок и формы
+        const bidList = document.getElementById("bidItems");
+        const bidAmountNew = document.getElementById("bid_amount");
+        const bidForm = document.querySelector("form");
+
+        // Обрабатываем событие отправки формы
+        bidForm.addEventListener("submit", function(event) {
+            event.preventDefault(); // Предотвращаем отправку формы
+
+            // Получаем значение ставки из поля ввода
+            const bidAmount = parseInt(bidAmountNew.value);
+
+            // Создаем новый элемент списка ставок
+            const newBidItem = document.createElement("li");
+            newBidItem.textContent = `Ставка: $${bidAmount}`;
+
+            // Добавляем новую ставку в список
+            bidList.appendChild(newBidItem);
+
+            // Очищаем поле ввода ставки
+            bidAmountNew.value = "";
+        });
+    </script>
+  
 </body>
 </html>
