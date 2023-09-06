@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Аукцион</title>
+  <style>
+    /* Ваш стиль CSS здесь */
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Аукцион</h1>
+  </header>
+  
+  <main>
+    <h2>Добро пожаловать!</h2>
+    <p>На нашем аукционе вы можете приобрести уникальный лот, который будет представлен здесь.</p>
+    
+    <div id="lot">
+      <h3>Лот номер 1</h3>
+      <img src="lot1.jpg" alt="Лот 1">
+      <p>Описание лота и его характеристики.</p>
+      <p>Текущая ставка: $100</p>
+      
+      <form action="submit_bid.php" method="POST">
+        <input type="number" name="bid_amount" placeholder="Ваша ставка">
+        <input type="submit" value="Сделать ставку">
+      </form>
+    </div>
+  </main>
+  
+  <footer>
+    <!-- Здесь может быть информация о владельце, контакты и другая дополнительная информация -->
+  </footer>
+</body>
+</html>
